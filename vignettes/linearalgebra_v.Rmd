@@ -1,0 +1,19 @@
+---
+title: "linearalgebra_v"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{linearalgebra_v}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(linearalgebra)
+```
