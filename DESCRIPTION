@@ -2,10 +2,10 @@ Package: linearalgebra
 Title: Carry Out Basic Linear Algebra Operations
 Version: 0.0.0.9000
 Authors@R: 
-    person("Yunxi", "Liu", , "yliu177@smith.edu", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-    person("Lorena", "Bulnes", "lbulnesrodriguez@smith.edu", role = c("aut", "cre"),
-    comment = c(ORCID = "YOUR-ORCID-ID"))
+    c(person("Yunxi", "Liu", , "yliu177@smith.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID")),
+    person("Lorena", "Bulnes", "lbulnesrodriguez@smith.edu", role = "aut",
+    comment = c(ORCID = "YOUR-ORCID-ID")))
 Description: This package helps carry out basic linear algebra operations. You provide a matrix of your interest, and the functions will take care of it and identify certain trends of the matrix. 
    Also, this has a dataframe of terms and definitions that you can reach out for help
 License: MIT + file LICENSE
