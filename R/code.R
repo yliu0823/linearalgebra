@@ -1,14 +1,22 @@
-
-
-
-## Creating a function that counts the pivots
+library(pracma)
+#'@title Check number of pivots of the matrix
+#'
+#'@description
+#'Given a matrix object, this function calculates its rref form and counted the
+#'number of pivots, this returns a sentence of information.
+#'
+#'@importFrom pracma rref
+#'
+#'@param matrix a matrix of your choice
+#'
+#'@return a sentence about the number of pivots of the given matrix
 pivot_check <- function(matrix){
   rref_matrix <- rref(matrix)
   pivots <- apply(rref_matrix != 0,2, sum)
 
   total_pivots <- sum(pivots)
 
-  cat("There are", total_pivots, "pivots in the matrix. \n")
+  return(cat("There are", total_pivots, "pivots in the matrix. \n"))
 }
 
 
