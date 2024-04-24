@@ -10,6 +10,7 @@ library(pracma)
 #'@param matrix a matrix of your choice
 #'
 #'@return a sentence about the number of pivots of the given matrix
+#'@export
 pivot_check <- function(matrix){
   rref_matrix <- rref(matrix)
   pivots <- apply(rref_matrix != 0,2, sum)
@@ -18,44 +19,18 @@ pivot_check <- function(matrix){
 
   return(cat("There are", total_pivots, "pivots in the matrix. \n"))
 }
-
-
-
-### WEB SCRAPING
-# Doing web scraping of the definitions
-library(rvest)
-library(stringr)
-library(dplyr)
-
-url <- "https://www.math.ucdavis.edu/~daddel/MATH22AL/Resources/Glossary_Linear_Algebra_UMBC.html"
-web <- read_html(url)
-
-
-terms <- web |>
-  html_nodes('.defnword') |>
-  html_text()
-
-definitions <- web |>
-  html_nodes('dd') |>
-  html_text()
-
-
-clean_def <- function(definitions){
-  cleaned_text <- str_replace(definitions, "Examples:.*", "")
-  # Replace multiple spaces with a single space
-  cleaned_text <- str_replace_all(cleaned_text, "\\s+", " ")
-  # Replace escaped quotes with regular quotes
-  cleaned_text <- str_replace_all(cleaned_text, "\\\"", "\"")
-  return(cleaned_text)
-}
-
-cleaned_definitions <- clean_def(definitions)
-
-glossary <- data.frame(
-  Terms = terms,
-  Definition = cleaned_definitions)
-
-
+#'@title Return definition of a term in linear algebra
+#'
+#'@description
+#'This function returns the definition of the input term in linear algebra,
+#'if the term doesn't exist in our glossory term, it will return "Term not found"
+#'
+#'@param term a term that's commonly used in linear algebra
+#'
+#'@return a sentence of definition corresponding to the term,
+#'or "Term not found" if it's not included in our glossory.
+#'@example
+#'def("Codomain")
 def <- function(term){
   row <- which(glossary$Terms == term)
 
