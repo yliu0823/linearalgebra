@@ -33,15 +33,12 @@ rref(A)
 #'
 #'@param x a matrix
 #'
-#'@example
+#'@examples
 #'\dontrun{
 #'B<-matrix(c(1, 2, 3,4, 5, 6,7, 8, 9,1, 2, 3),nrow=4, ncol=3, byrow=TRUE)
 #'rows_of_zero_detector(B)
 #'}
-#'@importsFrom pracma rref
-#'@importsFrom base which
-#'@importsFrom base rowSums
-#'@importsFrom base length
+#'@importFrom pracma rref
 #'@export
 rows_of_zero_detector <- function(x){
   x <- rref(x)
@@ -57,12 +54,8 @@ rows_of_zero_detector(B)
 #'
 #' Given a matrix, this returns if the matrix is linearly dependent or not
 #' @param x a matrix
-#' @importFrom base qr
-#' @importFrom base min
-#' @importFrom base nrow
-#' @importFrom base ncol
 #'
-#' @example
+#' @examples
 #' c<-matrix(c(1, 2, 3,
 #'4, 5, 6,
 #'7, 8, 9),  # Note: this row repeats the first row
@@ -83,10 +76,10 @@ c<-matrix(c(1, 2, 3,
           nrow=4, ncol=3, byrow=TRUE)
 linear_dependent_detector(c)
 #function4-check_subspace
-#'Define the function to check subspace
+#'@Title check if the set of vectors is a subspace
 #'@param vectors a list of vectors
 #'
-#'@importFrom
+#'
 checkSubspace <- function(vectors) {
   # Number of vectors
   n <- length(vectors)

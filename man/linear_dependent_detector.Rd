@@ -12,3 +12,10 @@ linear_dependent_detector(x)
 \description{
 Given a matrix, this returns if the matrix is linearly dependent or not
 }
+\examples{
+c<-matrix(c(1, 2, 3,
+4, 5, 6,
+7, 8, 9),  # Note: this row repeats the first row
+nrow=4, ncol=3, byrow=TRUE)
+linear_dependent_detector(c)
+}
