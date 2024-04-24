@@ -1,3 +1,8 @@
 ^linearalgebra\.Rproj$
 ^\.Rproj\.user$
+<<<<<<< HEAD
+^README\.Rmd$
+^LICENSE\.md$
+=======
 ^data-raw$
+>>>>>>> master
