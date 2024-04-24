@@ -2,6 +2,5 @@
 
 export(random_matrix_generator)
 export(rows_of_zero_detector)
-importFrom(base,matrix)
 importFrom(pracma,rref)
 importFrom(stats,runif)

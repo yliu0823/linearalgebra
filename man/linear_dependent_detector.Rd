@@ -2,12 +2,15 @@
 % Please edit documentation in R/code.R
 \name{linear_dependent_detector}
 \alias{linear_dependent_detector}
-\title{Given a matrix, this returns if the matrix is linearly dependent or not}
+\title{Linear dependency detector}
 \usage{
 linear_dependent_detector(x)
 }
 \arguments{
 \item{x}{a matrix}
+}
+\value{
+This returns TRUE or FALSE
 }
 \description{
 Given a matrix, this returns if the matrix is linearly dependent or not
@@ -15,7 +18,7 @@ Given a matrix, this returns if the matrix is linearly dependent or not
 \examples{
 c<-matrix(c(1, 2, 3,
 4, 5, 6,
-7, 8, 9),  # Note: this row repeats the first row
+7, 8, 9),
 nrow=4, ncol=3, byrow=TRUE)
 linear_dependent_detector(c)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/code.R
 \name{rows_of_zero_detector}
 \alias{rows_of_zero_detector}
-\title{Given a matrix, this detect rows of zero of the matrix's rref form}
+\title{Rows of Zero detector}
 \usage{
 rows_of_zero_detector(x)
 }
@@ -10,5 +10,11 @@ rows_of_zero_detector(x)
 \item{x}{a matrix}
 }
 \description{
-Given a matrix, this detect rows of zero of the matrix's rref form
+Given a matrix, this detects rows of zero of the matrix's rref form.
+}
+\examples{
+\dontrun{
+B<-matrix(c(1, 2, 3,4, 5, 6,7, 8, 9,1, 2, 3),nrow=4, ncol=3, byrow=TRUE)
+rows_of_zero_detector(B)
+}
 }
