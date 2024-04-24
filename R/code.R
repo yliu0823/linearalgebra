@@ -1,6 +1,5 @@
 library(pracma)
-<<<<<<< HEAD
-#function1
+
 #'@title Generate a random matrix for practice
 #'
 #'@description Given ncols, nrows, min, max, this method generates a random matrix
@@ -22,7 +21,6 @@ random_matrix_generator <- function(ncols,nrows,min,max){
   return(x)
 }
 
-#function2
 #'@title Rows of Zero detector
 #'@description
 #'Given a matrix, this detects rows of zero of the matrix's rref form.
@@ -103,7 +101,6 @@ findBasisFromList <- function(vectors) {
   return(basis)
 }
 #dataframe-definitions
-=======
 #'@title Check number of pivots of the matrix
 #'
 #'@description
@@ -147,4 +144,3 @@ def <- function(term){
 }
 
 
->>>>>>> master
