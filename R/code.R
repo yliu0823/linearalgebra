@@ -10,9 +10,8 @@ library(pracma)
 #'@param max maximum of the random number included in the matrix
 #'@return x a random matrix generated
 #'@examples
-#'\dontrun{
 #'random_matrix_generator(100,100,0,100)
-#'}
+#'
 #'@export
 random_matrix_generator <- function(ncols,nrows,min,max){
   n <- nrows*ncols
@@ -42,7 +41,7 @@ rows_of_zero_detector <- function(x){
     print("This matrix doesn't have rows of zero in its rref form ")
   }
 }
-rows_of_zero_detector(B)
+
 #'@title Linear dependency detector
 #'@description
 #'Given a matrix, this returns if the matrix is linearly dependent or not
@@ -55,6 +54,7 @@ rows_of_zero_detector(B)
 #'7, 8, 9),
 #'nrow=4, ncol=3, byrow=TRUE)
 #'linear_dependent_detector(c)
+#'@export
 linear_dependent_detector <- function(x){
   matrix_rank <- qr(x)$rank
   min_dimension <- min(nrow(x), ncol(x))
@@ -64,11 +64,7 @@ linear_dependent_detector <- function(x){
     return(FALSE)  # Matrix is linearly independent
   }
 }
-c<-matrix(c(1, 2, 3,
-            4, 5, 6,
-            7, 8, 9),  # Note: this row repeats the first row
-          nrow=4, ncol=3, byrow=TRUE)
-linear_dependent_detector(c)
+
 #'@title find the basis of a set of vectors
 #'@description
 #'Given list of vectors, this identify the linearly independent vectors and
@@ -83,6 +79,8 @@ linear_dependent_detector(c)
 #'c = c(7, 8, 9)
 #')
 #'findBasisFromList(vectors)
+#'
+#'@export
 
 findBasisFromList <- function(vectors) {
   lengths <- sapply(vectors, length)
@@ -100,7 +98,7 @@ findBasisFromList <- function(vectors) {
   basis <- matrix[, qr.decomp$pivot[1:rank]]
   return(basis)
 }
-#dataframe-definitions
+
 #'@title Check number of pivots of the matrix
 #'
 #'@description
@@ -133,9 +131,9 @@ pivot_check <- function(matrix){
 #'or "Term not found" if it's not included in our glossory.
 #'@example
 #'def("Codomain")
+#'@export
 def <- function(term){
   row <- which(glossary$Terms == term)
-
   if(length(row) > 0){
     return(glossary$Definition[row])
   } else {
