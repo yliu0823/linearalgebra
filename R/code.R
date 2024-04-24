@@ -41,5 +41,4 @@ def <- function(term){
   }
 }
 
-def("Codomain")
 
