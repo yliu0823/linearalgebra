@@ -6,7 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of linearalgebra is to …
+‘linearalgebra’ aids with basic mathematics used in linear algebra. This
+package also provides a dataframe with basic linear algebra functions.
 
 ## Installation
 
@@ -18,35 +19,63 @@ You can install the development version of linearalgebra from
 devtools::install_github("yliu0823/linearalgebra")
 ```
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
+To begin testing the various function, it is required to have a matrix.
+We’ll use the random_matrix_generator to create a random matrix:
 
 ``` r
 library(linearalgebra)
-## basic example code
+
+A <- random_matrix_generator(3,3,1,5)
+A
+#>      [,1] [,2] [,3]
+#> [1,]    1    1    1
+#> [2,]    3    3    4
+#> [3,]    4    1    1
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Above we have matrix A, to check if there is a row of 0’s, we can use
+the function below:
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+rows_of_zero_detector(A)
+#> [1] "This matrix doesn't have rows of zero in its rref form "
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+We can also check if the matrix is linearly dependent or independent.
 
-You can also embed plots, for example:
+``` r
+linear_dependent_detector(A)
+#> [1] FALSE
+```
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+If we were wondering how many pivots there is, we can use the function
+below:
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+``` r
+pivot_check(A)
+#> There are 3 pivots in the matrix.
+```
+
+If we have a list of vectors and are wondering if they are a basis we
+can use the function below:
+
+``` r
+# List of vectors
+vectors <- list(a = c(1, 2, 3), b = c(4, 5, 6), c = c(7, 8, 9)
+)
+
+findBasisFromList(vectors)
+#>      a b
+#> [1,] 1 4
+#> [2,] 2 5
+#> [3,] 3 6
+```
+
+If you do not know what ‘basis’ is, you can use the function below:
+
+``` r
+def("basis")
+#> [1] "Term not found"
+```

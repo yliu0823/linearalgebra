@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of linearalgebra is to ...
+'linearalgebra' aids with basic mathematics used in linear algebra. This package also provides a dataframe with basic linear algebra functions. 
 
 ## Installation
 
@@ -29,27 +29,49 @@ You can install the development version of linearalgebra from [GitHub](https://g
 devtools::install_github("yliu0823/linearalgebra")
 ```
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
+To begin testing the various function, it is required to have a matrix. We'll use the random_matrix_generator to create a random matrix:
 
-```{r example}
+```{r,example} 
 library(linearalgebra)
-## basic example code
+
+A <- random_matrix_generator(3,3,1,5)
+A
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
-```{r cars}
-summary(cars)
+Above we have matrix A, to check if there is a row of 0's, we can use the function below:
+
+```{r}
+rows_of_zero_detector(A)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+We can also check if the matrix is linearly dependent or independent. 
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r}
+linear_dependent_detector(A)
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+If we were wondering how many pivots there is, we can use the function below: 
+
+```{r}
+pivot_check(A)
+```
+
+If we have a list of vectors and are wondering if they are a basis we can use the function below:
+
+```{r}
+# List of vectors
+vectors <- list(a = c(1, 2, 3), b = c(4, 5, 6), c = c(7, 8, 9)
+)
+
+findBasisFromList(vectors)
+```
+
+If you do not know what 'basis' is, you can use the function below:
+
+```{r}
+def("basis")
+```
+
