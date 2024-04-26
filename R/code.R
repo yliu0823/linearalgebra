@@ -114,13 +114,14 @@ findBasisFromList <- function(vectors) {
 #'
 #'@export
 pivot_check <- function(matrix){
-  rref_matrix <- rref(matrix)
-  pivots <- apply(rref_matrix != 0,2, sum)
-
-  total_pivots <- sum(pivots)
-
-  return(cat("There are", total_pivots, "pivots in the matrix. \n"))
+  rref_matrix <- pracma::rref(matrix)
+  if(all(rref_matrix == 0)){
+    return("There are 0 pivots in the matrix")
+  }
+  pivots <-  sum(diag(rref_matrix) == 1)
+  cat("There are", pivots, "pivots in the matrix. \n")
 }
+
 #'@title Return definition of a term in linear algebra
 #'
 #'@description
