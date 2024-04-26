@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # linearalgebra
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/yliu0823/linearalgebra/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/yliu0823/linearalgebra/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 'linearalgebra' aids with basic mathematics used in linear algebra. This package also provides a dataframe with basic linear algebra functions. 

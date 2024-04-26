@@ -4,6 +4,8 @@
 # linearalgebra
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/yliu0823/linearalgebra/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/yliu0823/linearalgebra/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ‘linearalgebra’ aids with basic mathematics used in linear algebra. This
@@ -30,9 +32,9 @@ library(linearalgebra)
 A <- random_matrix_generator(3,3,1,5)
 A
 #>      [,1] [,2] [,3]
-#> [1,]    2    2    4
-#> [2,]    1    3    3
-#> [3,]    3    4    2
+#> [1,]    2    1    3
+#> [2,]    4    4    4
+#> [3,]    4    1    4
 ```
 
 Above we have matrix A, to check if there is a row of 0’s, we can use
