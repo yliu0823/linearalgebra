@@ -30,9 +30,9 @@ library(linearalgebra)
 A <- random_matrix_generator(3,3,1,5)
 A
 #>      [,1] [,2] [,3]
-#> [1,]    1    1    1
-#> [2,]    3    3    4
-#> [3,]    4    1    1
+#> [1,]    2    2    4
+#> [2,]    1    3    3
+#> [3,]    3    4    2
 ```
 
 Above we have matrix A, to check if there is a row of 0’s, we can use
@@ -58,8 +58,8 @@ pivot_check(A)
 #> There are 3 pivots in the matrix.
 ```
 
-If we have a list of vectors and are wondering if they are a basis we
-can use the function below:
+If we have a list of vectors and want the basis of them, use the
+function below:
 
 ``` r
 # List of vectors

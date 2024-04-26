@@ -59,7 +59,7 @@ If we were wondering how many pivots there is, we can use the function below:
 pivot_check(A)
 ```
 
-If we have a list of vectors and are wondering if they are a basis we can use the function below:
+If we have a list of vectors and want the basis of them, use the function below:
 
 ```{r}
 # List of vectors
