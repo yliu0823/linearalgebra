@@ -1,8 +1,8 @@
 ---
-title: "linearalgebra_v"
+title: "Using the linear algebra package"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{linearalgebra_v}
+  %\VignetteIndexEntry{Using the linear algebra package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -13,7 +13,48 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
-
+##Checking linear algebra glossary
+The main function of the linear algebra package is to let you browse definitions of basic terms in linear algebra. Let's see how we can accomplish this. First, load the `linearalgebra` package.
 ```{r setup}
 library(linearalgebra)
 ```
+You can check the terms with definitions available by subsetting the dataframe glossory.
+```{r}
+glossary["Terms"]
+```
+Then, use the `def()` function to retrieve definition of term from the glossary attached to the package.
+```{r}
+def("Codomain")
+```
+##Glossary data
+The linearalgebra package comes with a built-in data set matching definitions with corresponding terms. 
+```{r}
+linearalgebra::glossary
+```
+##Basic operations in Linear Algebra
+The linearalgebra package also includes a few functions for basic matrix operations in Linear Algebra. First, `random_matrix_generator()` is useful for generating random matrices. Let's see how we can do this.
+```{r}
+A <- random_matrix_generator(ncols = 3, nrows = 3, min = 0, max = 10)
+```
+Through running the `random_matrix_generator()` function, we created a matrix named A. Then, use `rows_of_zero_detector()` to check if the matrix has rows of zero in its rref form.
+```{r}
+rows_of_zero_detector(A)
+```
+After this, use `linear_dependent_detector()` to check if the matrix A contains linearly dependent vectors.
+```{r}
+linear_dependent_detector(A)
+```
+Also, use `pivot_check()` to count number of pivots of matrix A in its rref form.
+```{r}
+pivot_check(A)
+```
+Apart from these matrix operations, use `findBasisFromList()` to find basis of a set of vectors.
+```{r}
+vectors <- list(
+a = c(1, 2, 3),
+b = c(4, 5, 6),
+c = c(7, 8, 9)
+)
+findBasisFromList(vectors)
+```
+

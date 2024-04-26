@@ -21,4 +21,5 @@ c<-matrix(c(1, 2, 3,
 7, 8, 9),
 nrow=4, ncol=3, byrow=TRUE)
 linear_dependent_detector(c)
+
 }

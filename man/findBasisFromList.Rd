@@ -7,10 +7,10 @@
 findBasisFromList(vectors)
 }
 \arguments{
-\item{vectors}{a set of vectors}
+\item{vectors}{a list of vectors}
 }
 \value{
-This returns the set of vectors that's the basis
+This returns the subset of vectors that's the basis
 }
 \description{
 Given list of vectors, this identify the linearly independent vectors and
@@ -23,4 +23,5 @@ b = c(4, 5, 6),
 c = c(7, 8, 9)
 )
 findBasisFromList(vectors)
+
 }

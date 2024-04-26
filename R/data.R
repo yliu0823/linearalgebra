@@ -6,4 +6,4 @@
 #'  }
 #'@source <https://www.math.ucdavis.edu/~daddel/MATH22AL/Resources/Glossary_Linear_Algebra_UMBC.html>
 
-"DATASET"
+"glossary"

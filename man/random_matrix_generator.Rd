@@ -22,7 +22,6 @@ x a random matrix generated
 Given ncols, nrows, min, max, this method generates a random matrix
 }
 \examples{
-\dontrun{
 random_matrix_generator(100,100,0,100)
-}
+
 }

@@ -49,4 +49,5 @@ glossary[missing_rows, "Definition"] <- missing_def
 
 # getting rid of some useless rows
 glossary <- glossary[-c(8, 27), ]
-usethis::use_data("DATASET", overwrite = TRUE)
+glossory <- as.data.frame(glossary)
+usethis::use_data(glossary, overwrite = TRUE)

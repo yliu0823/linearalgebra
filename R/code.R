@@ -15,7 +15,7 @@ library(pracma)
 #'@export
 random_matrix_generator <- function(ncols,nrows,min,max){
   n <- nrows*ncols
-  data <- runif(n, min=min, max=max)
+  data <- floor(runif(n, min=min, max=max))
   x <- matrix(data=data, nrow=nrows,ncol=ncols,byrow = FALSE)
   return(x)
 }
@@ -30,6 +30,7 @@ random_matrix_generator <- function(ncols,nrows,min,max){
 #'rows_of_zero_detector(B)
 #'
 #'@importFrom pracma rref
+#'
 #'@export
 rows_of_zero_detector <- function(x){
   x <- rref(x)
@@ -54,6 +55,7 @@ rows_of_zero_detector <- function(x){
 #'7, 8, 9),
 #'nrow=4, ncol=3, byrow=TRUE)
 #'linear_dependent_detector(c)
+#'
 #'@export
 linear_dependent_detector <- function(x){
   matrix_rank <- qr(x)$rank
@@ -70,8 +72,8 @@ linear_dependent_detector <- function(x){
 #'Given list of vectors, this identify the linearly independent vectors and
 #'returns the basis of the vector.
 #'
-#' @param vectors a set of vectors
-#' @return This returns the set of vectors that's the basis
+#' @param vectors a list of vectors
+#' @return This returns the subset of vectors that's the basis
 #' @examples
 #' vectors <- list(
 #'a = c(1, 2, 3),
@@ -89,7 +91,6 @@ findBasisFromList <- function(vectors) {
   }
   # Convert the list of vectors into a matrix
   matrix <- do.call(cbind, vectors)
-
   # Perform QR decomposition on the matrix
   qr.decomp <- qr(matrix)
   # Get the rank of the matrix
@@ -110,6 +111,7 @@ findBasisFromList <- function(vectors) {
 #'@param matrix a matrix of your choice
 #'
 #'@return a sentence about the number of pivots of the given matrix
+#'
 #'@export
 pivot_check <- function(matrix){
   rref_matrix <- rref(matrix)
@@ -129,8 +131,10 @@ pivot_check <- function(matrix){
 #'
 #'@return a sentence of definition corresponding to the term,
 #'or "Term not found" if it's not included in our glossory.
-#'@example
+#'@examples
+#'\dontrun{
 #'def("Codomain")
+#'}
 #'@export
 def <- function(term){
   row <- which(glossary$Terms == term)
