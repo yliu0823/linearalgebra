@@ -13,10 +13,10 @@ library(pracma)
 #'random_matrix_generator(100,100,0,100)
 #'
 #'@export
-random_matrix_generator <- function(ncols,nrows,min,max){
-  n <- nrows*ncols
-  data <- floor(runif(n, min=min, max=max))
-  x <- matrix(data=data, nrow=nrows,ncol=ncols,byrow = FALSE)
+random_matrix_generator <- function(ncols, nrows, min, max) {
+  n <- nrows * ncols
+  data <- floor(runif(n, min = min, max = max))
+  x <- matrix(data = data, nrow = nrows, ncol = ncols, byrow = FALSE)
   return(x)
 }
 
@@ -32,16 +32,15 @@ random_matrix_generator <- function(ncols,nrows,min,max){
 #'@importFrom pracma rref
 #'
 #'@export
-rows_of_zero_detector <- function(x){
+rows_of_zero_detector <- function(x) {
   x <- rref(x)
   zero_rows_indices <- which(rowSums(abs(x)) == 0)
-  if (length(zero_rows_indices)!=0){
-      print("This matrix has rows of zero in its rref form")
-      return(TRUE)
-  }
-  else{
+  if (length(zero_rows_indices) != 0) {
+    print("This matrix has rows of zero in its rref form")
+    return(TRUE)
+  }else {
     return(FALSE)
-    print("This matrix doesn't have rows of zero in its rref form ")
+    print("This matrix doesn't have rows of zero in its rref form")
   }
 }
 
@@ -59,7 +58,7 @@ rows_of_zero_detector <- function(x){
 #'linear_dependent_detector(c)
 #'
 #'@export
-linear_dependent_detector <- function(x){
+linear_dependent_detector <- function(x) {
   matrix_rank <- qr(x)$rank
   min_dimension <- min(nrow(x), ncol(x))
   if (matrix_rank < min_dimension) {
@@ -84,13 +83,13 @@ linear_dependent_detector <- function(x){
 #'b = c(4, 5, 6),
 #'c = c(7, 8, 9)
 #')
-#'findBasisFromList(vectors)
+#'find_basis_from_list(vectors)
 #'
 #'@export
 
-findBasisFromList <- function(vectors) {
+find_basis_from_list <- function(vectors) {
   lengths <- sapply(vectors, length)
-  if(min(lengths) != max(lengths)){
+  if(min(lengths) != max(lengths)) {
     stop("The list of vectors need to be of the same length")
   }
   # Convert the list of vectors into a matrix
@@ -117,9 +116,9 @@ findBasisFromList <- function(vectors) {
 #'@return a sentence about the number of pivots of the given matrix
 #'
 #'@export
-pivot_check <- function(matrix){
+pivot_check <- function(matrix) {
   rref_matrix <- pracma::rref(matrix)
-  if(all(rref_matrix == 0)){
+  if(all(rref_matrix == 0)) {
     return("There are 0 pivots in the matrix")
   }
   pivots <-  sum(diag(rref_matrix) == 1)
@@ -142,13 +141,11 @@ pivot_check <- function(matrix){
 #'def("Codomain")
 #'}
 #'@export
-def <- function(term){
+def <- function(term) {
   row <- which(glossary$Terms == term)
-  if(length(row) > 0){
+  if(length(row) > 0) {
     return(glossary$Definition[row])
   } else {
     return("Term not found")
   }
 }
-
-

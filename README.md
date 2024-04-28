@@ -29,12 +29,12 @@ We’ll use the random_matrix_generator to create a random matrix:
 ``` r
 library(linearalgebra)
 
-A <- random_matrix_generator(3,3,1,5)
+A <- random_matrix_generator(3, 3, 1, 5)
 A
 #>      [,1] [,2] [,3]
-#> [1,]    2    1    3
-#> [2,]    4    4    4
-#> [3,]    4    1    4
+#> [1,]    1    4    4
+#> [2,]    1    3    3
+#> [3,]    4    4    1
 ```
 
 Above we have matrix A, to check if there is a row of 0’s, we can use
@@ -42,7 +42,7 @@ the function below:
 
 ``` r
 rows_of_zero_detector(A)
-#> [1] "This matrix doesn't have rows of zero in its rref form "
+#> [1] FALSE
 ```
 
 We can also check if the matrix is linearly dependent or independent.
@@ -58,6 +58,7 @@ below:
 ``` r
 pivot_check(A)
 #> There are 3 pivots in the matrix.
+#> [1] 3
 ```
 
 If we have a list of vectors and want the basis of them, use the
@@ -68,7 +69,7 @@ function below:
 vectors <- list(a = c(1, 2, 3), b = c(4, 5, 6), c = c(7, 8, 9)
 )
 
-findBasisFromList(vectors)
+find_basis_from_list(vectors)
 #>      a b
 #> [1,] 1 4
 #> [2,] 2 5
