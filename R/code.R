@@ -37,8 +37,10 @@ rows_of_zero_detector <- function(x){
   zero_rows_indices <- which(rowSums(abs(x)) == 0)
   if (length(zero_rows_indices)!=0){
       print("This matrix has rows of zero in its rref form")
+      return(TRUE)
   }
   else{
+    return(FALSE)
     print("This matrix doesn't have rows of zero in its rref form ")
   }
 }
@@ -62,8 +64,10 @@ linear_dependent_detector <- function(x){
   min_dimension <- min(nrow(x), ncol(x))
   if (matrix_rank < min_dimension) {
     return(TRUE)  # Matrix is linearly dependent
+    print("This matrix contains linearly dependent vector")
   } else {
     return(FALSE)  # Matrix is linearly independent
+    print("All vectors in this matrix are linearly independent")
   }
 }
 
@@ -120,6 +124,7 @@ pivot_check <- function(matrix){
   }
   pivots <-  sum(diag(rref_matrix) == 1)
   cat("There are", pivots, "pivots in the matrix. \n")
+  return(pivots)
 }
 
 #'@title Return definition of a term in linear algebra
