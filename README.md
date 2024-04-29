@@ -32,9 +32,9 @@ library(linearalgebra)
 A <- random_matrix_generator(3, 3, 1, 5)
 A
 #>      [,1] [,2] [,3]
-#> [1,]    1    4    4
-#> [2,]    1    3    3
-#> [3,]    4    4    1
+#> [1,]    1    4    1
+#> [2,]    3    2    4
+#> [3,]    1    4    3
 ```
 
 Above we have matrix A, to check if there is a row of 0’s, we can use
@@ -79,6 +79,6 @@ find_basis_from_list(vectors)
 If you do not know what ‘basis’ is, you can use the function below:
 
 ``` r
-def("basis")
-#> [1] "Term not found"
+def("Basis")
+#> [1] "A basis of a vector space is an ordered set of vectors which is linearly independent and spans the vector space. Note that every basis of a vector space has the same number of vectors, which is called the dimension of the vector space. and {[2;1;0],[1;1;1],[1;2;1]} P3 has bases {1,x,x2,x3} (the standard basis) and {1,x,2x2-1,4x3-3x} (the Tchebicheff basis) "
 ```
