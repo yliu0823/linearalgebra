@@ -8,15 +8,15 @@ web <- read_html(url)
 
 
 terms <- web |>
-  html_nodes('.defnword') |>
+  html_nodes(".defnword") |>
   html_text()
 
 definitions <- web |>
-  html_nodes('dd') |>
+  html_nodes("dd") |>
   html_text()
 
 
-clean_def <- function(definitions){
+clean_def <- function(definitions) {
   cleaned_text <- str_replace(definitions, "Examples:.*", "")
   # Replace multiple spaces with a single space
   cleaned_text <- str_replace_all(cleaned_text, "\\s+", " ")
@@ -27,9 +27,7 @@ clean_def <- function(definitions){
 
 cleaned_definitions <- clean_def(definitions)
 
-glossary <- data.frame(
-  Terms = terms,
-  Definition = cleaned_definitions)
+glossary <- data.frame(Terms = terms, Definition = cleaned_definitions)
 # Filling in the missing definitions from a textbook manually.
 
 missing_def <- c(
@@ -44,9 +42,7 @@ missing_def <- c(
 )
 
 missing_rows <- c(8, 13, 14, 15, 22, 25, 26, 27)
-
 glossary[missing_rows, "Definition"] <- missing_def
-
 # getting rid of some useless rows
 glossary <- glossary[-c(8, 27), ]
 glossory <- as.data.frame(glossary)
