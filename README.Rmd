@@ -72,6 +72,6 @@ findBasisFromList(vectors)
 If you do not know what 'basis' is, you can use the function below:
 
 ```{r}
-def("basis")
+def("Basis")
 ```
 
