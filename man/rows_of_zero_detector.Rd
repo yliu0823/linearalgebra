@@ -9,6 +9,9 @@ rows_of_zero_detector(x)
 \arguments{
 \item{x}{a matrix}
 }
+\value{
+TRUE if there's rows of zero, FALSE if there isn't row of zero.
+}
 \description{
 Given a matrix, this detects rows of zero of the matrix's rref form.
 }

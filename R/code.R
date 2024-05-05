@@ -24,7 +24,7 @@ random_matrix_generator <- function(ncols, nrows, min, max) {
 #'@description
 #'Given a matrix, this detects rows of zero of the matrix's rref form.
 #'@param x a matrix
-#'
+#'@returns TRUE if there's rows of zero, FALSE if there isn't row of zero.
 #'@examples
 #'B<-matrix(c(1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3), nrow=4, ncol=3, byrow=TRUE)
 #'rows_of_zero_detector(B)
