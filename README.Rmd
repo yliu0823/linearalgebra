@@ -73,7 +73,7 @@ find_basis_from_list(vectors)
 If you do not know what 'basis' is, you can use the function below:
 
 ```{r}
-def("basis")
+def("Basis")
 ```
 
 If you want to view the glossary data frame, you can use the code below:
