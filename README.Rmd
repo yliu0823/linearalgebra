@@ -75,9 +75,3 @@ If you do not know what 'basis' is, you can use the function below:
 ```{r}
 def("Basis")
 ```
-
-If you want to view the glossary data frame, you can use the code below:
-```{r}
-linearalgebra::glossary
-```
-
